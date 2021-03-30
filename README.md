@@ -1,1 +1,1 @@
-# full-stack-client-motiullahsajit
+#daily-grocery-client
