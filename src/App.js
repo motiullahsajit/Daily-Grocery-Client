@@ -33,7 +33,7 @@ function App() {
             <PrivateRoute path='/orders'>
               <Orders />
             </PrivateRoute>
-            <PrivateRoute path='/admin'>
+            <PrivateRoute path='/admin/:options'>
               <Admin />
             </PrivateRoute>
             <Route path='/deals'>
@@ -45,10 +45,10 @@ function App() {
             <Route path='/details/:id'>
               <ProductDetails />
             </Route>
-            <Route path='/update/:id'>
+            <PrivateRoute path='/editProduct/:id'>
               <UpdateProduct />
-            </Route>
-            <PrivateRoute path='/product/:_id'>
+            </PrivateRoute>
+            <PrivateRoute path='/product/:id'>
               <CheckOut />
             </PrivateRoute>
             <Route exact path='/'>

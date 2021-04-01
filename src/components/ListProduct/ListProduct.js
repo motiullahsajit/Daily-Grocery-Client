@@ -21,7 +21,7 @@ const ListProduct = ({ product }) => {
             < div className='col-2 fs-3'> <h3>৳ {price}</h3></div>
             < div className='col-1 fs-3'> <h3>{quantity}</h3></div>
             <div className='col-1 mx-1'> <button className="fas fa-trash p-2 px-3 fs-4" onClick={() => deleteProduct(_id)}>Delete</button></div>
-            <div className='col-1 mx-1'> <Link to={`/update/${_id}`}><button className="fas fa-trash p-2 px-3 fs-4">Update</button></Link></div>
+            <div className='col-1 mx-1'> <Link to={`/editProduct/${_id}`}><button className="fas fa-trash p-2 px-3 fs-4">Update</button></Link></div>
         </div >
     );
 };

@@ -1,15 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { UserContext } from '../../App';
 
 const CheckOut = () => {
-    const { _id } = useParams();
+    const { id } = useParams();
     const [orderItem, setOrderItem] = useState({})
-    console.log(orderItem)
     const { register, handleSubmit, errors } = useForm();
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
-    console.log(loggedInUser)
+    const [loggedInUser] = useContext(UserContext)
+    const history = useHistory()
     const onSubmit = data => {
         const orderDetails = { userName: loggedInUser.displayName, userEmail: loggedInUser.email, product: orderItem, shipment: data, orderTime: new Date() }
         fetch('https://daily-grocery-server.herokuapp.com/addOrder', {
@@ -22,28 +21,43 @@ const CheckOut = () => {
             .then(res => res.json())
             .then(data => {
                 if (data) {
-                    alert('Your oder placed successfuly')
+                    alert('Your order placed successfully')
+                    history.push(`/home`);
                 }
             })
 
     };
     useEffect(() => {
-        fetch(`https://daily-grocery-server.herokuapp.com/product/${_id}`)
+        fetch(`https://daily-grocery-server.herokuapp.com/product/${id}`)
             .then(res => res.json())
             .then(data => setOrderItem(data))
-    }, [_id])
+    }, [id])
 
     return (
         <div>
-            <h1>Your Product id {_id}</h1>
+            <h1>Checkout</h1>
+            <div className="row mt-4">
+                <div className="col-md-6">Description</div>
+                <div className="col-md-3">Quantity</div>
+                <div className="col-md-3">Price</div>
+            </div>
+            <div className="row mb-3">
+                <div className="col-md-6">{orderItem.name}</div>
+                <div className="col-md-3">1</div>
+                <div className="col-md-3">৳{orderItem.price}</div>
+            </div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input name="name" defaultValue={loggedInUser.displayName} ref={register({ required: true })} placeholder='Your Name' />
+                <br /><br />
                 {errors.name && <span className='error'>Name is required</span>}
                 <input name="email" defaultValue={loggedInUser.email} ref={register({ required: true })} placeholder='Your Email' />
+                <br /><br />
                 {errors.email && <span className='error'>Email is required</span>}
                 <input name="address" ref={register({ required: true })} placeholder='Your Address' />
+                <br /><br />
                 {errors.address && <span className='error'>Address is required</span>}
                 <input name="phone" ref={register({ required: true })} placeholder='Your Phone Number' />
+                <br /><br />
                 {errors.phone && <span className='error'>Phone number is required</span>}
                 <input type="submit" />
             </form>

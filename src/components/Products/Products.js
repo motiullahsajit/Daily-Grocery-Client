@@ -17,16 +17,20 @@ const Products = () => {
     }, [])
 
     return (
-        <div className='row g-4'>
+        <>
             {
-                loading && <div className="spinner-border text-warning" role="status">
-                    <span className="visually-hidden"></span>
+                loading && <div className="row my-5">
+                    <div className="spinner-border text-warning mx-auto" role="status">
+                        <span className="visually-hidden"></span>
+                    </div>
                 </div>
             }
-            {
-                products.map(product => <Product key={product._id} product={product} />)
-            }
-        </div>
+            <div className='row g-4'>
+                {
+                    products.map(product => <Product key={product._id} product={product} />)
+                }
+            </div>
+        </>
     );
 };
 

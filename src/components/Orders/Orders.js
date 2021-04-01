@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../App';
 
 const Orders = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+    const [loggedInUser] = useContext(UserContext)
     const [orders, setOrders] = useState([])
     useEffect(() => {
         fetch(`https://daily-grocery-server.herokuapp.com/orders?email=${loggedInUser.email}`)

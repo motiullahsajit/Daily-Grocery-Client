@@ -4,7 +4,7 @@ import Product from '../Product/Product';
 import Products from '../Products/Products';
 
 const Home = () => {
-    const [loading, setLoading] = useState(false);
+    document.title = 'Home';
     const [search, setSerch] = useState('');
     const [products, setProducts] = useState([]);
     const handleChange = event => {
@@ -13,11 +13,9 @@ const Home = () => {
     }
 
     useEffect(() => {
-        setLoading(true)
         const fetchData = async () => {
             const url = `https://daily-grocery-server.herokuapp.com/product?name=${search}`;
             const data = await axios(url);
-            setLoading(false)
             return data;
         }
         fetchData()
@@ -33,13 +31,10 @@ const Home = () => {
 
     return (
         <div classnames='container'>
-            <input type="text" className='w-75' onBlur={handleChange} placeholder='Search for meals...' />
-            <button>Search</button>
-            {
-                loading && <div className="spinner-border text-warning" role="status">
-                    <span className="visually-hidden"></span>
-                </div>
-            }
+            <div className="d-flex justify-content-center my-3">
+                <input type="text" className='w-50' onBlur={handleChange} placeholder='Search for meals...' />
+                <button>Search</button>
+            </div>
             {
                 products ? products.map(product => <Product key={product._id} product={product} />) : <h1>nothing found</h1>
             }

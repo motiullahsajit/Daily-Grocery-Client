@@ -1,15 +1,15 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
+import Sidebar from '../Sidebar/Sidebar';
 
 const UpdateProduct = () => {
     const { id } = useParams();
     const { register, handleSubmit, errors } = useForm();
     const [imageURL, setImageURL] = useState(null);
     const [updateItem, setUpdateItem] = useState({})
-    console.log(updateItem.imageURL)
-
+    const history = useHistory()
     useEffect(() => {
         fetch(`https://daily-grocery-server.herokuapp.com/product/${id}`)
             .then(res => res.json())
@@ -31,6 +31,7 @@ const UpdateProduct = () => {
             },
             body: JSON.stringify(UpdateData)
         })
+        history.push(`/home`);
     };
 
     const handleImageUpload = event => {
@@ -48,7 +49,11 @@ const UpdateProduct = () => {
     }
 
     return (
-        <div className="container mt-5">
+        <div className="row">
+             <div className="col-md-3">
+                <Sidebar />
+            </div>
+            <div className="col-md-9">
             <h1>Update Your Products Here</h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input name="name" defaultValue={updateItem.name} placeholder='Product name' ref={register} />
@@ -62,8 +67,9 @@ const UpdateProduct = () => {
                 <input name="quantity" defaultValue={updateItem.quantity} placeholder='Quantity' type="text" ref={register} />
                 <br /><br />
                 {errors.exampleRequired && <span>This field is required</span>}
-                <input type="submit" value='Update'/>
+                <input type="submit" value='Update' />
             </form>
+            </div>
         </div>
     );
 };
