@@ -67,7 +67,7 @@ const UpdateProduct = () => {
                 <input name="quantity" defaultValue={updateItem.quantity} placeholder='Quantity' type="text" ref={register} />
                 <br /><br />
                 {errors.exampleRequired && <span>This field is required</span>}
-                <input type="submit" value='Update' />
+                <input className='btn btn-danger'type="submit" value='Update' />
             </form>
             </div>
         </div>

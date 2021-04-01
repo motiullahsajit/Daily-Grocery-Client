@@ -20,7 +20,7 @@ const Products = () => {
         <>
             {
                 loading && <div className="row my-5">
-                    <div className="spinner-border text-warning mx-auto" role="status">
+                    <div className="spinner-border text-danger mx-auto" role="status">
                         <span className="visually-hidden"></span>
                     </div>
                 </div>

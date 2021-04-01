@@ -19,7 +19,7 @@ const DetailsPage = () => {
 
     return (
         <div className='container'>
-            <div className="card mb-3">
+            <div className="card mt-5">
                 <div className="row g-0">
                     <div className="col-md-4">
                         <img className='w-100' src={imageURL} alt={name} />
@@ -30,7 +30,7 @@ const DetailsPage = () => {
                             <h4 className="card-title">Quantity : {quantity}</h4>
                             <h5 className="card-text">৳{price}</h5>
                             <p>{description}</p>
-                            <button className='btn btn-warning' onClick={handleOrder}>Buy Now</button>
+                            <button className='btn btn-danger' onClick={handleOrder}>Buy Now</button>
                         </div>
                     </div>
                 </div>

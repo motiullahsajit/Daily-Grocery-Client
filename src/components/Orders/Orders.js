@@ -12,7 +12,7 @@ const Orders = () => {
 
     return (
         <div>
-            <h3>You have been placed: {orders.length} </h3>
+            <h3>Your Previous Orders: {orders.length} </h3>
             {
                 orders.map(order => <li key={order._id}>Ordered Item: {order.product.name} ,OrderPlaced: {(new Date(order.orderTime).toDateString('dd/mm/yyyy'))}</li>)
             }

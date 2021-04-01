@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none !important;
+    color: #575757 !important;
+}
+.app{
+    background-color: #faf5f5;
+    min-height: 100vh;
+}

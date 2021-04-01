@@ -1,3 +1,5 @@
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -16,12 +18,13 @@ const ListProduct = ({ product }) => {
     }
 
     return (
-        <div className='m-2 bg-success text-white d-flex justify-content-around align-items-center'>
-            < div className='col-7 fs-3'> <h3>{name}</h3></div>
-            < div className='col-2 fs-3'> <h3>৳ {price}</h3></div>
-            < div className='col-1 fs-3'> <h3>{quantity}</h3></div>
-            <div className='col-1 mx-1'> <button className="fas fa-trash p-2 px-3 fs-4" onClick={() => deleteProduct(_id)}>Delete</button></div>
-            <div className='col-1 mx-1'> <Link to={`/editProduct/${_id}`}><button className="fas fa-trash p-2 px-3 fs-4">Update</button></Link></div>
+        <div style={{ border: "1px solid red" }} className='m-2 text-seconday d-flex justify-content-around align-items-center'>
+            < div className='col-7 fs-3'> <h4>{name}</h4></div>
+            < div className='col-2 fs-3'> <h4>৳ {price}</h4></div>
+            < div className='col-1 fs-3'> <h4>{quantity}</h4></div>
+            <div className='col-1'> <span className="fas fa-trash p-2 px-3 fs-4" onClick={() => deleteProduct(_id)}><FontAwesomeIcon icon={faTrash} />
+            </span></div>
+            <div className='col-1'> <Link to={`/editProduct/${_id}`}><span className="fas fa-trash p-2 px-3 fs-4"><FontAwesomeIcon icon={faPen} /></span></Link></div>
         </div >
     );
 };

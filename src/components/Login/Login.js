@@ -93,10 +93,10 @@ const Login = () => {
                 <Profile signOut={signOut} />
                 :
                 <>
-                    <div className="col-md-3 mt-5 container bg-light p-3">
+                    <div className="col-md-5 mt-5 container bg-none b-2 p-3">
                         <form onSubmit={handleSubmit} className="form my-4">
                             {
-                                option === 'signUp' ? <h3 className='text-warning'>Create an account</h3> : <h3 className='text-warning'>Login</h3>
+                                option === 'signUp' ? <h2 className='text-danger text-center my-3'>Create an account</h2> : <h2 className='text-danger text-center my-3'>Login</h2>
                             }
                             {
                                 option === 'signUp' && <div className="mb-3">
@@ -122,19 +122,19 @@ const Login = () => {
                             <div className="mb-3 d-grid">
                                 {
                                     option === 'signUp' ?
-                                        <button type="submit" className="btn btn-warning text-white w-100">Create an account</button>
+                                        <button type="submit" className="btn btn-danger text-white w-100">Create an account</button>
                                         :
-                                        <button type="submit" className="btn btn-warning text-white w-100">Login</button>
+                                        <button type="submit" className="btn btn-danger text-white w-100">Login</button>
                                 }
                             </div>
                             {
-                                option === 'signUp' ? <> <p>Already have an account? <span className='text-warning' onClick={() => setOption('login')}>Login</span></p></> :
-                                    <> <p>Don't have an account? <span className='text-warning' onClick={() => setOption('signUp')}>Create an account</span></p></>
+                                option === 'signUp' ? <> <p>Already have an account? <span className='text-danger' onClick={() => setOption('login')}>Login</span></p></> :
+                                    <> <p>Don't have an account? <span className='text-danger' onClick={() => setOption('signUp')}>Create an account</span></p></>
                             }
                         </form>
-                        <h3 className='text-warning text-center'>Or</h3>
-                        <button type="submit" onClick={handleFacebookSingIn} className="btn btn-primary my-1 w-100">Continue With Facebook</button>
-                        <button type="submit" onClick={handleGoogleSingIn} className="btn btn-success my-1 w-100">Continue With Google</button>
+                        <h3 className='text-danger text-center'>Or</h3>
+                        <button type="submit" onClick={handleFacebookSingIn} className="btn btn-primary my-1 w-100">Whit Facebook</button>
+                        <button type="submit" onClick={handleGoogleSingIn} className="btn btn-success my-1 w-100">Whit Google</button>
                     </div>
                 </>
         } </>

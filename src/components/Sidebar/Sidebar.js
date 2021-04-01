@@ -3,14 +3,12 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
     return (
-        <>
+        <div className='bg-success' style={{ minHeight: "92.8vh" }}>
             <h3>Daily Grocery</h3>
-            <ul>
-                <Link to='/admin/manageProduct'><li>Manage Product</li></Link>
-                <Link to='/admin/addProduct'><li>Add Product</li></Link>
-                <Link to='/admin/editProduct'><li>Edit Product</li></Link>
-            </ul>
-        </>
+                <Link to='/admin/manageProduct'><h5>Manage Product</h5></Link>
+                <Link to='/admin/addProduct'><h5>Add Product</h5></Link>
+                <Link to='/admin/editProduct'><h5>Edit Product</h5></Link>
+        </div>
     );
 };
 

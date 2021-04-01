@@ -2,9 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { useForm } from "react-hook-form";
+import { useHistory } from 'react-router';
 const AddProduct = () => {
     const { register, handleSubmit, errors } = useForm();
     const [imageURL, setImageURL] = useState(null);
+    const history = useHistory()
     const onSubmit = data => {
         const eventData = {
             name: data.name,
@@ -21,6 +23,7 @@ const AddProduct = () => {
             body: JSON.stringify(eventData)
         })
             .then(res => console.log('server site res', res))
+        history.push(`/home`);
     };
 
     const handleImageUpload = event => {
@@ -51,7 +54,7 @@ const AddProduct = () => {
                 <input name="quantity" placeholder='Quantity' type="text" ref={register} />
                 <br /><br />
                 {errors.exampleRequired && <span>This field is required</span>}
-                <input type="submit" />
+                <input className='btn btn-danger' type="submit" />
             </form>
         </div>
     );

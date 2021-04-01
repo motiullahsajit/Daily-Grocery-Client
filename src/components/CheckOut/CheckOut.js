@@ -59,7 +59,7 @@ const CheckOut = () => {
                 <input name="phone" ref={register({ required: true })} placeholder='Your Phone Number' />
                 <br /><br />
                 {errors.phone && <span className='error'>Phone number is required</span>}
-                <input type="submit" />
+                <input className='btn btn-danger' type="submit" />
             </form>
         </div>
     );

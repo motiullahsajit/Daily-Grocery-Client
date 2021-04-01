@@ -32,8 +32,8 @@ const Home = () => {
     return (
         <div classnames='container'>
             <div className="d-flex justify-content-center my-3">
-                <input type="text" className='w-50' onBlur={handleChange} placeholder='Search for meals...' />
-                <button>Search</button>
+                <input type="text" className='w-50' onBlur={handleChange} placeholder='Search for ...' />
+                <button className='btn btn-danger rounded-0'>Search</button>
             </div>
             {
                 products ? products.map(product => <Product key={product._id} product={product} />) : <h1>nothing found</h1>
