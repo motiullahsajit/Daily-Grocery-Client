@@ -6,7 +6,7 @@ const Admin = () => {
     const [productList, setProductList] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://daily-grocery-server.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProductList(data))
     }, [])

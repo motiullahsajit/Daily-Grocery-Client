@@ -15,6 +15,7 @@ import Orders from './components/Orders/Orders';
 import Deals from './components/Deals/Deals';
 import CheckOut from './components/CheckOut/CheckOut';
 import ProductDetails from './components/ProductDetails/ProductDetails';
+import UpdateProduct from './components/UpdateProduct/UpdateProduct';
 
 export const UserContext = createContext();
 
@@ -43,6 +44,9 @@ function App() {
             </Route>
             <Route path='/details/:id'>
               <ProductDetails />
+            </Route>
+            <Route path='/update/:id'>
+              <UpdateProduct />
             </Route>
             <PrivateRoute path='/product/:_id'>
               <CheckOut />

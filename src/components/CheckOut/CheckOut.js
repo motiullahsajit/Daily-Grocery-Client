@@ -12,7 +12,7 @@ const CheckOut = () => {
     console.log(loggedInUser)
     const onSubmit = data => {
         const orderDetails = { userName: loggedInUser.displayName, userEmail: loggedInUser.email, product: orderItem, shipment: data, orderTime: new Date() }
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://daily-grocery-server.herokuapp.com/addOrder', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ const CheckOut = () => {
 
     };
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${_id}`)
+        fetch(`https://daily-grocery-server.herokuapp.com/product/${_id}`)
             .then(res => res.json())
             .then(data => setOrderItem(data))
     }, [_id])

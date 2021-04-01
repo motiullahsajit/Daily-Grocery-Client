@@ -11,8 +11,9 @@ const AddProduct = () => {
             imageURL: imageURL,
             price: data.price,
             description: data.description,
+            quantity: data.quantity
         }
-        fetch('http://localhost:5000/addproduct', {
+        fetch('https://daily-grocery-server.herokuapp.com/addproduct', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -43,9 +44,11 @@ const AddProduct = () => {
                 <br /><br />
                 <input name="price" placeholder='Product price' type='number' ref={register} />
                 <br /><br />
-                <input name="imgfile" type="file" onChange={handleImageUpload} />
+                <input name="imageURL" type="file" onChange={handleImageUpload} />
                 <br /><br />
                 <input name="description" placeholder='Description' type="text" ref={register} />
+                <br /><br />
+                <input name="quantity" placeholder='Quantity' type="text" ref={register} />
                 <br /><br />
                 {errors.exampleRequired && <span>This field is required</span>}
                 <input type="submit" />
