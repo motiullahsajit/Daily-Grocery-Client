@@ -9,9 +9,9 @@ const Product = ({ product }) => {
         history.push(`/product/${_id}`);
     }
     return (
-        <div className="col-lg-3 col-md-6 col-sm-12 my-2" >
+        <div className="col-lg-4 col-md-6 col-sm-12 my-2" >
             <div className="card h-100 text-dark">
-                <img src={imageURL} className="card-img-top p-3" alt="..." />
+                <Link to={`/details/${_id}`}><img src={imageURL} className="card-img-top p-3" alt="..." /></Link>
                 <div className="card-body">
                     <h5 className="card-title"><Link to={`/details/${_id}`}>{name}</Link></h5>
                     <h5 className="card-text text-secondary"><strong>৳</strong> {price}</h5>

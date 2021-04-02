@@ -11,9 +11,11 @@ const UpdateProduct = () => {
     const [updateItem, setUpdateItem] = useState({})
     const history = useHistory()
     useEffect(() => {
-        fetch(`https://daily-grocery-server.herokuapp.com/product/${id}`)
-            .then(res => res.json())
-            .then(data => setUpdateItem(data))
+        const fetchData = async () => {
+            const data = await axios(`https://daily-grocery-server.herokuapp.com/product/${id}`);
+            return data;
+        }
+        fetchData().then(data => setUpdateItem(data?.data))
     }, [id])
 
     const onSubmit = data => {
@@ -50,25 +52,25 @@ const UpdateProduct = () => {
 
     return (
         <div className="row">
-             <div className="col-md-3">
+            <div className="col-md-3">
                 <Sidebar />
             </div>
             <div className="col-md-9">
-            <h1>Update Your Products Here</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input name="name" defaultValue={updateItem.name} placeholder='Product name' ref={register} />
-                <br /><br />
-                <input name="price" defaultValue={updateItem.price} placeholder='Product price' type='number' ref={register} />
-                <br /><br />
-                <input name="imageURL" placeholder='Reupload the image' defaultValue={updateItem.imageURL} type="file" ref={register} onChange={handleImageUpload} />
-                <br /><br />
-                <input name="description" defaultValue={updateItem.description} placeholder='Description' type="text" ref={register} />
-                <br /><br />
-                <input name="quantity" defaultValue={updateItem.quantity} placeholder='Quantity' type="text" ref={register} />
-                <br /><br />
-                {errors.exampleRequired && <span>This field is required</span>}
-                <input className='btn btn-danger'type="submit" value='Update' />
-            </form>
+                <h1>Update Your Products Here</h1>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <input name="name" defaultValue={updateItem.name} placeholder='Product name' ref={register} />
+                    <br /><br />
+                    <input name="price" defaultValue={updateItem.price} placeholder='Product price' type='number' ref={register} />
+                    <br /><br />
+                    <input name="imageURL" placeholder='Reupload the image' defaultValue={updateItem.imageURL} type="file" ref={register} onChange={handleImageUpload} />
+                    <br /><br />
+                    <input name="description" defaultValue={updateItem.description} placeholder='Description' type="text" ref={register} />
+                    <br /><br />
+                    <input name="quantity" defaultValue={updateItem.quantity} placeholder='Quantity' type="text" ref={register} />
+                    <br /><br />
+                    {errors.exampleRequired && <span>This field is required</span>}
+                    <input className='btn btn-danger' type="submit" value='Update' />
+                </form>
             </div>
         </div>
     );

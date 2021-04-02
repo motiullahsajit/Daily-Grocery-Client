@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
     return (
-        <div className='bg-success' style={{ minHeight: "92.8vh" }}>
-            <h3>Daily Grocery</h3>
-                <Link to='/admin/manageProduct'><h5>Manage Product</h5></Link>
-                <Link to='/admin/addProduct'><h5>Add Product</h5></Link>
-                <Link to='/admin/editProduct'><h5>Edit Product</h5></Link>
+        <div className='h-40 mt-3' style={{ minHeight: "40.8vh" }}>
+            <div className="col bg-white p-1 my-1"><h2>Dashbord</h2></div>
+            <div className="col bg-white p-1 my-1"><Link to='/admin/manageProduct'><h4>Manage Product</h4></Link></div>
+            <div className="col bg-white p-1 my-1"><Link to='/admin/addProduct'><h4>Add Product</h4></Link></div>
+            <div className="col bg-white p-1 my-1"><Link to='/admin/editProduct'><h4>Edit Product</h4></Link></div>
         </div>
     );
 };

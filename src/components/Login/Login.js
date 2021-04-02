@@ -133,8 +133,8 @@ const Login = () => {
                             }
                         </form>
                         <h3 className='text-danger text-center'>Or</h3>
-                        <button type="submit" onClick={handleFacebookSingIn} className="btn btn-primary my-1 w-100">Whit Facebook</button>
-                        <button type="submit" onClick={handleGoogleSingIn} className="btn btn-success my-1 w-100">Whit Google</button>
+                        <button type="submit" onClick={handleGoogleSingIn} className="btn btn-success my-1 w-100">With Google</button>
+                        <button type="submit" onClick={handleFacebookSingIn} className="btn btn-primary my-1 w-100">With Facebook</button>
                     </div>
                 </>
         } </>

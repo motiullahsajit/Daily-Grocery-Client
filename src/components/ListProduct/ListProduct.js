@@ -18,10 +18,10 @@ const ListProduct = ({ product }) => {
     }
 
     return (
-        <div style={{ border: "1px solid red" }} className='m-2 text-seconday d-flex justify-content-around align-items-center'>
-            < div className='col-7 fs-3'> <h4>{name}</h4></div>
-            < div className='col-2 fs-3'> <h4>৳ {price}</h4></div>
-            < div className='col-1 fs-3'> <h4>{quantity}</h4></div>
+        <div className='m-2 text-seconday border border-secondary d-flex justify-content-around align-items-center bg-white rounded'>
+            < div className='col-7 fs-3'> <h5>{name}</h5></div>
+            < div className='col-2 fs-3'> <h5>৳ {price}</h5></div>
+            < div className='col-1 fs-3'> <h5>{quantity}</h5></div>
             <div className='col-1'> <span className="fas fa-trash p-2 px-3 fs-4" onClick={() => deleteProduct(_id)}><FontAwesomeIcon icon={faTrash} />
             </span></div>
             <div className='col-1'> <Link to={`/editProduct/${_id}`}><span className="fas fa-trash p-2 px-3 fs-4"><FontAwesomeIcon icon={faPen} /></span></Link></div>

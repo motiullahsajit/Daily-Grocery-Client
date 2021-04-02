@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 
@@ -6,9 +7,11 @@ const DetailsPage = () => {
 
     const [product, setProduct] = useState({})
     useEffect(() => {
-        fetch(`https://daily-grocery-server.herokuapp.com/product/${id}`)
-            .then(res => res.json())
-            .then(data => setProduct(data))
+        const fetchData = async () => {
+            const data = await axios(`https://daily-grocery-server.herokuapp.com/product/${id}`);
+            return data;
+        }
+        fetchData().then(data => setProduct(data?.data))
 
     }, [id])
     const { name, imageURL, price, _id, description, quantity } = product;

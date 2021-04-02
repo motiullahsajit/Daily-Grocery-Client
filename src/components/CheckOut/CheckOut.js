@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router';
@@ -28,9 +29,11 @@ const CheckOut = () => {
 
     };
     useEffect(() => {
-        fetch(`https://daily-grocery-server.herokuapp.com/product/${id}`)
-            .then(res => res.json())
-            .then(data => setOrderItem(data))
+        const fetchData = async () => {
+            const data = await axios(`https://daily-grocery-server.herokuapp.com/product/${id}`);
+            return data;
+        }
+        fetchData().then(data => setOrderItem(data?.data))
     }, [id])
 
     return (
