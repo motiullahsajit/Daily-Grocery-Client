@@ -23,7 +23,7 @@ const AddProduct = () => {
             body: JSON.stringify(eventData)
         })
             .then(res => console.log('server site res', res))
-        history.push(`/home`);
+        history.push(`/admin/manageProduct`);
     };
 
     const handleImageUpload = event => {
@@ -40,22 +40,20 @@ const AddProduct = () => {
             });
     }
     return (
-        <div className="container mt-5">
-            <h1>Add Your Products Here</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input name="name" placeholder='Product name' ref={register} />
-                <br /><br />
-                <input name="price" placeholder='Product price' type='number' ref={register} />
-                <br /><br />
-                <input name="imageURL" type="file" onChange={handleImageUpload} />
-                <br /><br />
-                <input name="description" placeholder='Description' type="text" ref={register} />
-                <br /><br />
-                <input name="quantity" placeholder='Quantity' type="text" ref={register} />
-                <br /><br />
-                {errors.exampleRequired && <span>This field is required</span>}
-                <input className='btn btn-danger' type="submit" />
-            </form>
+        <div className="container mt-4">
+            <div className="col-md-6 mx-auto">
+                <h2 className='text-danger text-center'>Product Information</h2>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <input name="name" className='w-100 py-2 my-2' placeholder='Product name' ref={register} />
+                    <input name="price" className='w-100 py-2 my-2' placeholder='Product price' type='number' ref={register} />
+                    <input name="description" className='w-100 py-2 my-2' placeholder='Description' type="text" ref={register} />
+                    <input name="quantity" className='w-100 py-2 my-2' placeholder='Quantity' type="text" ref={register} />
+                    <h5 className="text-secondary">Select Image</h5>
+                    <input name="imageURL" className='my-3' type="file" onChange={handleImageUpload} />
+                    {errors.exampleRequired && <span>This field is required</span>}
+                    <input className='btn btn-danger w-100' type="submit" value='Add' />
+                </form>
+            </div>
         </div>
     );
 };

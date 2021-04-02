@@ -14,7 +14,7 @@ const Header = () => {
                 <Nav className="ml-auto d-flex align-items-center">
                     <Link className='mx-2 text-danger text-decoration-none' to='/home'><h5>Home</h5></Link>
                     <Link className='mx-2 text-danger text-decoration-none' to='/orders'><h5>Orders</h5></Link>
-                    <Link className='mx-2 text-danger text-decoration-none' to='/admin/admin'><h5>Admin</h5></Link>
+                    <Link className='mx-2 text-danger text-decoration-none' to='/admin/manageProduct'><h5>Admin</h5></Link>
                     <Link className='mx-2 text-danger text-decoration-none' to='/deals'><h5>Deals</h5></Link>
                     {
                         loggedInUser.email && loggedInUser.displayName ? <Link to='/login' className='mx-2 text-danger text-decoration-none' >

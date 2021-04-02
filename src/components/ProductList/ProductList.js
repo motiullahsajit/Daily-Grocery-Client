@@ -15,12 +15,12 @@ const ProductList = () => {
     }, [])
     return (
         <>
-        <div className='m-2 text-seconday border border-secondary d-flex justify-content-around align-items-center bg-white rounded'>
-            < div className='col-7 fs-3'> <h5>Product Name</h5></div>
-            < div className='col-2 fs-3'> <h5>৳ Price</h5></div>
-            < div className='col-2 fs-3'> <h5>Quantity</h5></div>
-            < div className='col-1 fs-3'> <h5>Edit</h5></div>
-        </div >
+            <div className='m-2 text-seconday border border-secondary d-flex justify-content-around align-items-center bg-white rounded'>
+                < div className='col-6 fs-3'> <h5>Product Name</h5></div>
+                < div className='col-2 fs-3 text-center'> <h5>৳ Price</h5></div>
+                < div className='col-2 fs-3 text-center'> <h5>Quantity</h5></div>
+                < div className='col-2 text-center fs-3'> <h5>Action</h5></div>
+            </div >
             {
                 loading && <div className="row my-5">
                     <div className="spinner-border text-danger mx-auto" role="status">

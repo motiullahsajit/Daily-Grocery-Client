@@ -28,9 +28,9 @@ const DetailsPage = () => {
                         <img className='w-100' src={imageURL} alt={name} />
                     </div>
                     <div className="col-md-8">
-                        <div className="card-body">
+                        <div className="card-body text-dark">
                             <h4 className="card-title">{name}</h4>
-                            <h4 className="card-title">Quantity : {quantity}</h4>
+                            <h5 className="card-title">Products Left : {quantity}</h5>
                             <h5 className="card-text">৳{price}</h5>
                             <p>{description}</p>
                             <button className='btn btn-danger' onClick={handleOrder}>Buy Now</button>

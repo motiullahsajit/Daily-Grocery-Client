@@ -37,34 +37,37 @@ const CheckOut = () => {
     }, [id])
 
     return (
-        <div>
-            <h1>Checkout</h1>
-            <div className="row mt-4">
-                <div className="col-md-6">Description</div>
-                <div className="col-md-3">Quantity</div>
-                <div className="col-md-3">Price</div>
+        <>
+            <h1 className='text-center text-danger'>Checkout</h1>
+            <div className="row p-2">
+                <div className="col-md-8">
+                    <div className="my-3 bg-white d-flex justify-content-around">
+                        <div className="col-md-6"><h3>Ordered Item</h3></div>
+                        <div className="col-md-3"><h3>Quantity</h3></div>
+                        <div className="col-md-3"><h3>Price</h3></div>
+                    </div>
+                    <div className="bg-white d-flex justify-content-around">
+                        <div className="col-md-6"><h4>{orderItem.name}</h4></div>
+                        <div className="col-md-3"><h4>1</h4></div>
+                        <div className="col-md-3"><h4>৳{orderItem.price}</h4></div>
+                    </div>
+                </div>
+                <div className="col-md-4 mx-auto">
+                    <h4>Your Details</h4>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <input name="name" className='w-100 py-2 my-2' defaultValue={loggedInUser.displayName} ref={register({ required: true })} placeholder='Your Name' />
+                        {errors.name && <span className='error'>Name is required</span>}
+                        <input name="email" className='w-100 py-2 my-2' defaultValue={loggedInUser.email} ref={register({ required: true })} placeholder='Your Email' />
+                        {errors.email && <span className='error'>Email is required</span>}
+                        <input name="address" className='w-100 py-2 my-2'  ref={register({ required: true })} placeholder='Your Address' />
+                        {errors.address && <span className='error'>Address is required</span>}
+                        <input name="phone" className='w-100 py-2 my-2'  ref={register({ required: true })} placeholder='Your Phone Number' />
+                        {errors.phone && <span className='error'>Phone number is required</span>}
+                        <input className='btn btn-danger w-100 py-2 my-2' type="submit" value='CheckOut'/>
+                    </form>
+                </div>
             </div>
-            <div className="row mb-3">
-                <div className="col-md-6">{orderItem.name}</div>
-                <div className="col-md-3">1</div>
-                <div className="col-md-3">৳{orderItem.price}</div>
-            </div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input name="name" defaultValue={loggedInUser.displayName} ref={register({ required: true })} placeholder='Your Name' />
-                <br /><br />
-                {errors.name && <span className='error'>Name is required</span>}
-                <input name="email" defaultValue={loggedInUser.email} ref={register({ required: true })} placeholder='Your Email' />
-                <br /><br />
-                {errors.email && <span className='error'>Email is required</span>}
-                <input name="address" ref={register({ required: true })} placeholder='Your Address' />
-                <br /><br />
-                {errors.address && <span className='error'>Address is required</span>}
-                <input name="phone" ref={register({ required: true })} placeholder='Your Phone Number' />
-                <br /><br />
-                {errors.phone && <span className='error'>Phone number is required</span>}
-                <input className='btn btn-danger' type="submit" />
-            </form>
-        </div>
+        </>
     );
 };
 

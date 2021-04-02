@@ -17,19 +17,25 @@ const Orders = () => {
     }, [loggedInUser.email])
 
     return (
-        <div>
-            <h3>Your Previous Orders: {orders.length} </h3>
-            {
-                loading && <div className="row my-5">
-                    <div className="spinner-border text-danger mx-auto" role="status">
-                        <span className="visually-hidden"></span>
-                    </div>
+        <>
+            <h2 className='text-center text-danger'>Your Previous Orders: {orders.length} </h2>
+            <div className="col-md-8 mx-auto text-center">
+                <div className="row border border-secondary ">
+                    <div className="col-md-6"><h3>Ordered Items</h3></div>
+                    <div className="col-md-6"><h3>Order Placed on</h3></div>
                 </div>
-            }
-            {
-                orders.map(order => <li key={order._id}>Ordered Item: {order.product.name} ,OrderPlaced: {(new Date(order.orderTime).toDateString('dd/mm/yyyy'))}</li>)
-            }
-        </div>
+                {
+                    loading && <div className="row my-5">
+                        <div className="spinner-border text-danger mx-auto" role="status">
+                            <span className="visually-hidden"></span>
+                        </div>
+                    </div>
+                }
+                {
+                    orders.map(order => <div className="row my-2 py-2 bg-white" key={order._id}><div className="col-md-6"><h5>{order.product.name}</h5></div> <div className="col-md-6"><h5>{(new Date(order.orderTime).toDateString('dd/mm/yyyy'))}</h5></div></div>)
+                }
+            </div>
+        </>
     );
 };
 

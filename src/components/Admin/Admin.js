@@ -15,13 +15,14 @@ const Admin = () => {
                     options === 'addProduct' && < AddProduct />
                 }
                 {
-                    options === 'admin' && <h1>Admin dashbord</h1>
+                    options === 'admin' && <h1 className='text-danger text-center'>Admin dashbord</h1>
+
                 }
                 {
                     options === 'manageProduct' && <ProductList />
                 }
                 {
-                    options === 'editProduct' && <h1>Select Product First</h1>
+                    options === 'editProduct' && <h1 className='text-danger text-center'>You haven't selected the product</h1>
                 }
             </div>
         </div>
