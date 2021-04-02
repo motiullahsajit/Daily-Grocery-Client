@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { UserContext } from '../../App';
 
 const Profile = ({ signOut }) => {
+    document.title = 'Profile';
     const [loggedInUser] = useContext(UserContext)
     return (
         <div className='container col-lg-4 col-md-6 col-sm-12 text-center mt-5'>

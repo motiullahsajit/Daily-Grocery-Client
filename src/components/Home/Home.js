@@ -6,7 +6,7 @@ import Products from '../Products/Products';
 const Home = () => {
     document.title = 'Home';
     const [search, setSerch] = useState('');
-    const [products, setProducts] = useState([]);
+    const [product, setProduct] = useState([]);
     const handleChange = event => {
         const search = (event.target.value)
         setSerch(search)
@@ -21,10 +21,10 @@ const Home = () => {
         fetchData()
             .then(data => {
                 if (data?.data) {
-                    setProducts(data?.data)
+                    setProduct(data?.data)
                 }
                 else (
-                    setProducts(null)
+                    setProduct(null)
                 )
             })
     }, [search])
@@ -35,9 +35,11 @@ const Home = () => {
                 <input type="text" className='w-50' onBlur={handleChange} placeholder='Search for ...' />
                 <button className='btn btn-danger rounded-0'>Search</button>
             </div>
-            {
-                products ? products.map(product => <Product key={product._id} product={product} />) : <h1>nothing found</h1>
-            }
+            <div className="row">
+                {
+                    product ? product.map(pd => <Product key={product._id} product={pd} />) : <h1 className='text-danger text-center'>nothing found</h1>
+                }
+            </div>
             <Products />
         </div>
     );

@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../App';
 
 const Orders = () => {
+    document.title = 'Previous Orders';
     const [loggedInUser] = useContext(UserContext)
     const [orders, setOrders] = useState([])
     const [loading, setLoading] = useState(true);

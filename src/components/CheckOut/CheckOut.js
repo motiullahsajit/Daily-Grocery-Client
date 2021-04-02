@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router';
 import { UserContext } from '../../App';
 
 const CheckOut = () => {
+    document.title = 'Admin Dashbord';
     const { id } = useParams();
     const [orderItem, setOrderItem] = useState({})
     const { register, handleSubmit, errors } = useForm();

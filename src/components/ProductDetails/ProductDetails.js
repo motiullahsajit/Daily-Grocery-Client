@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 
 const DetailsPage = () => {
+    document.title = 'Details';
     const { id } = useParams();
-
     const [product, setProduct] = useState({})
     useEffect(() => {
         const fetchData = async () => {

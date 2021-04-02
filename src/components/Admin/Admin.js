@@ -4,6 +4,7 @@ import AddProduct from '../AddProduct/AddProduct';
 import Sidebar from '../Sidebar/Sidebar';
 import ProductList from '../ProductList/ProductList';
 const Admin = () => {
+    document.title = 'Admin';
     const { options } = useParams();
     return (
         <div className='row mt-4'>

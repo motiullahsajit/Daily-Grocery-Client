@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router';
 import Sidebar from '../Sidebar/Sidebar';
 
 const UpdateProduct = () => {
+    document.title = 'Update Product';
     const { id } = useParams();
     const { register, handleSubmit, errors } = useForm();
     const [imageURL, setImageURL] = useState(null);

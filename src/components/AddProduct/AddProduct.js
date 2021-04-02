@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useHistory } from 'react-router';
 const AddProduct = () => {
+    document.title = 'Add Product';
     const { register, handleSubmit, errors } = useForm();
     const [imageURL, setImageURL] = useState(null);
     const history = useHistory()
@@ -22,7 +23,6 @@ const AddProduct = () => {
             },
             body: JSON.stringify(eventData)
         })
-            .then(res => console.log('server site res', res))
         history.push(`/admin/manageProduct`);
     };
 

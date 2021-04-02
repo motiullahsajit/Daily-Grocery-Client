@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Deals = () => {
+    document.title = 'Deals';
     return (
         <div className="card mb-3 h-100 col-8 mx-auto">
             <img src="https://i.ibb.co/Vxs85dv/Copy-of-Is-it-possible-to-survive-on-a-30-per-week-grocery-budget-564-x-852.png" className="card-img-top w-100" style={{height:"40rem"}} alt="..." />
