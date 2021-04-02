@@ -12,7 +12,7 @@ const ListProduct = ({ product }) => {
             .then(res => res.json())
             .then(result => {
                 if (result) {
-                    alert('Your order placed successfully')
+                    alert('Your product deleted successfully')
                 }
             })
     };
